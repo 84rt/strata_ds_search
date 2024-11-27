@@ -1,70 +1,3 @@
-# Strata: Zero-Knowledge Dataset Search
-
-A secure system that enables keyword searching while maintaining data privacy through zero-knowledge proofs. This project allows users to verify search results without exposing the underlying dataset.
-
-## 🌟 Features
-
-- Secure dataset hashing and verification
-- Privacy-preserving keyword search
-- Zero-knowledge proof generation and validation
-- Public verification interface
-- Secure API endpoints
-
-## 🏗️ Architecture
-
-The project is organized as a monorepo with the following structure:
-
-```
-project-root/
-├── frontend/         # Frontend applications
-├── backend/          # Backend APIs and services
-├── zkp/              # ZKP logic for proof generation and validation
-├── shared/          # Reusable utilities
-├── infrastructure/  # Docker, Kubernetes, CI/CD configurations
-└── README.md        # Documentation
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (>=16.x)
-- Python (>=3.8)
-- Docker
-- Git
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone [repository-url]
-cd [repository-name]
-```
-
-2. Install dependencies:
-```bash
-# Frontend dependencies
-cd frontend
-npm install
-
-# Backend dependencies
-cd ../backend
-python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-pip install -r requirements.txt
-```
-
-3. Start the development servers:
-```bash
-# Frontend
-cd frontend
-npm run dev
-
-# Backend
-cd ../backend
-python main.py
-```
-
 ## 📝 TODO List
 
 ### Backend Development
@@ -111,6 +44,76 @@ python main.py
 - [ ] Document ZKP implementation details
 - [ ] Add deployment guide
 - [ ] Create user manual
+
+---
+---
+
+# Strata: Zero-Knowledge Dataset Search
+
+A secure system that enables keyword searching while maintaining data privacy through zero-knowledge proofs. This project allows users to verify search results without exposing the underlying dataset.
+
+## 🌟 Features
+
+- Secure dataset hashing and verification
+- Privacy-preserving keyword search
+- Zero-knowledge proof generation and validation
+- Public verification interface
+- Secure API endpoints
+
+## 🏗️ Architecture
+
+The project is organized as a monorepo with the following structure:
+
+```
+project-root/
+├── frontend/         # Frontend applications
+├── backend/          # Backend APIs and services
+├── zkp/              # ZKP logic for proof generation and validation
+├── shared/          # Reusable utilities
+├── infrastructure/  # Docker, Kubernetes, CI/CD configurations
+└── README.md        # Documentation
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (>=16.x)
+- Python (>=3.8)
+- Docker
+- Git
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/84rt/strata_ds_search
+cd strata_ds_search
+```
+
+2. Install dependencies:
+```bash
+# Frontend dependencies
+cd frontend
+npm install
+
+# Backend dependencies
+cd ../backend
+python -m venv venv
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+pip install -r requirements.txt
+```
+
+3. Start the development servers:
+```bash
+# Frontend
+cd frontend
+npm run dev
+
+# Backend
+cd ../backend
+python main.py
+```
 
 ## 🔒 Security
 
