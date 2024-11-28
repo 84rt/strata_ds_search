@@ -1,1 +1,9 @@
-/data
+
+# Ignore the directory with the datasets (over 40GB in size)
+/backend/data
+
+# Ignore Conda environment files
+.conda/
+
+# Ignore VSCode settings
+.vscode/

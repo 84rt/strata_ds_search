@@ -2,6 +2,8 @@
 
 ### Backend Development
 - [ ] Implement dataset hash generation API
+    - get a dataset from hugging face
+    - create a `hash_ds` function (merkle tree)
 - [ ] Create keyword search functionality
 - [ ] Set up database schema and connections
 - [ ] Implement proof generation endpoints
@@ -19,6 +21,7 @@
 ### ZKP Module
 - [ ] Set up basic ZKP circuit
 - [ ] Implement proof generation logic
+    - Find the best library for it
 - [ ] Create proof validation system
 - [ ] Optimize proof generation performance
 - [ ] Add test vectors for ZKP validation
