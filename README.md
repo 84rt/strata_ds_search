@@ -1,9 +1,9 @@
 ## 📝 TODO List
 
 ### Backend Development
-- [ ] Implement dataset hash generation API
-    - get a dataset from hugging face
-    - create a `hash_ds` function (merkle tree)
+- [x] Implement dataset hash generation API
+    - [x] get a dataset from hugging face
+    - [x] create a `hash_ds` function (merkle tree)
 - [ ] Create keyword search functionality
 - [ ] Set up database schema and connections
 - [ ] Implement proof generation endpoints
