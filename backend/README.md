@@ -48,3 +48,20 @@ The `datasets_main.ipynb` notebook includes functionality to load datasets from 
 - `data/`: Directory where datasets are stored.
 
 Ensure that the `data/` directory exists and is properly structured to store the datasets as expected by the scripts and notebooks.
+
+
+
+### Current sizes of downloaded datasets
+- bookcorpus: **1020K**
+- tiny_shakespeare: **249M**
+- wikipedia_dataset: **5G**
+
+
+---
+
+TOOD (assure) later:
+- Make sure that the dataset is processed in the same way (this is to assure that the resoulting hash is the same, even if the dataset is processed, compressed or stored in a different way)
+    - white-spaces removed
+    - same file format 
+    - use the same hashing function: **SHA-256**
+    - use the same chunking size: **64MB**

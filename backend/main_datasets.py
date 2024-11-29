@@ -47,34 +47,37 @@ if not os.path.exists(local_dataset_path):
     print(f"Dataset saved to {local_dataset_path}")
 
 # %% 
-import hashlib
 
-def hash_function(data):
-    return hashlib.sha256(data).hexdigest()
 
-def merkle_tree(chunks):
-    current_level = [hash_function(chunk) for chunk in chunks]
-    while len(current_level) > 1:
-        next_level = []
-        for i in range(0, len(current_level), 2):
-            if i + 1 < len(current_level):
-                combined = current_level[i] + current_level[i + 1]
-            else:
-                combined = current_level[i]  # Handle odd number of hashes
-            next_level.append(hash_function(combined.encode()))
-        current_level = next_level
-    return current_level[0] if current_level else None
+# GENERATE A HASH OF A DATASET
+# load the json file from /data/[dataset_name]/[dataset_name]_sample_0.json
+# generate a Merkle tree of the dataset 
+# save the root hash to /data/hashes/[dataset_name]_hash
+from pymerkle import InmemoryTree as MerkleTree
 
-def save_merkle_root_to_file(dataset, file_path):
-    chunks = [json.dumps(example).encode() for example in dataset['train']]
-    merkle_root = merkle_tree(chunks)
-    with open(file_path, 'w') as f:
-        f.write(merkle_root)
-    print(f"Merkle Root saved to {file_path}")
+dataset_name = "tiny_shakespeare"
+# dataset_name = "wikipedia_dataset"
 
-# Use the loaded dataset and save the Merkle root to a file
-save_file_path = f"./data/{ds_to_download}_merkle_root.txt"
-os.makedirs(os.path.dirname(save_file_path), exist_ok=True)
-save_merkle_root_to_file(dataset, save_file_path)
+# Initialize the Merkle Tree
+tree = MerkleTree(hash_type='sha256')
+
+# Load the JSON file
+with open(f'./data/{dataset_name}/{dataset_name}_sample_0.json', 'r') as file:
+    data = json.load(file)
+
+# Process each entry in the JSON data
+for entry in data:
+    # Convert each entry to a string and encode it to bytes
+    data_chunk = json.dumps(entry).encode('utf-8')
+    tree.append_entry(data_chunk)
+
+# Retrieve the root hash after processing all entries
+root_hash = tree.get_state().hex()  # Convert bytes to a hex string
+print(f"Root Hash: {root_hash}")
+
+# Save the root hash to a file
+with open(f'./data/hashes/{dataset_name}_hash', 'w') as hash_file:
+    hash_file.write(root_hash)
+
 
 # %%
